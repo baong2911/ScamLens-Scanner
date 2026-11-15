@@ -1,0 +1,13 @@
+services:
+  scamlens:
+    image: node:22-alpine
+    working_dir: /app
+    user: node
+    command: ["node", "scripts/serve.mjs"]
+    ports:
+      - "127.0.0.1:${PORT:-4173}:4173"
+    environment:
+      PORT: "4173"
+    volumes:
+      - ./dist:/app/dist:ro
+      - ./scripts:/app/scripts:ro

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Check U.S. job offers, rental listings and marketplace messages for common scam signals."
+  />
+  <title>ScamLens · Listing check</title>
+  <link rel="stylesheet" href="./style.css" />
+  <header>
+    <div class="brand"><span>◈</span> ScamLens</div>
+    <span class="private">● &nbsp; Browser-local check</span>
+  </header>
+  <main>
+    <div class="intro">
+      <p class="eyebrow">U.S. CONSUMER SAFETY</p>
+      <h1>Spot the red flags<br />before you pay.</h1>
+      <p>
+        Check a job offer, rental listing, or marketplace message for common
+        signs of a scam.
+      </p>
+    </div>
+    <div class="grid">
+      <section class="card">
+        <h2>Check a listing</h2>
+        <form id="scan">
+          <label for="category">Listing type</label>
+          <select id="category">
+            <option value="job">Job offer</option>
+            <option value="rental">Rental listing</option>
+            <option value="market">Marketplace deal</option>
+          </select>
+          <div class="row">
+            <label for="listing">Listing or message</label
+            ><button id="example" type="button" class="link">
+              Load example
+            </button>
+          </div>
+          <textarea
+            id="listing"
+            maxlength="12000"
+            rows="7"
+            placeholder="Paste the listing, email, or message here…"
+            required
+            minlength="20"
+          ></textarea>
+          <label class="upload"
+            >Read text from a screenshot
+            <input
+              type="file"
+              id="image"
+              accept="image/png,image/jpeg,image/webp"
+          /></label>
+          <p id="status" role="status"></p>
+          <label class="save"
+            ><input type="checkbox" id="save" /> Save this result on this
+            device</label
+          >
+          <button class="primary" id="submit">
+            Check for red flags <span aria-hidden="true">→</span>
+          </button>
+        </form>
+      </section>
+      <section class="card results" aria-labelledby="result-title">
+        <h2 id="result-title">Analysis</h2>
+        <div id="results" aria-live="polite">
+          <div class="empty">
+            <span aria-hidden="true">◎</span>
+            <p>Your report will appear here.</p>
+            <small
+              >See the wording that triggered each flag and what to verify
+              next.</small
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+    <section class="card history">
+      <div class="row">
+        <h2>Saved checks</h2>
+        <button class="link" id="clear">Clear history</button>
+      </div>
+      <div id="history"></div>
+    </section>
+    <footer>
+      <span>ScamLens · Evidence-based screening</span>
+      <nav aria-label="Consumer resources">
+        <a href="https://consumer.ftc.gov/articles/job-scams">FTC job scams</a
+        ><a href="https://consumer.ftc.gov/articles/rental-listing-scams"
+          >FTC rental scams</a
+        ><a href="https://reportfraud.ftc.gov/">Report fraud</a>
+      </nav>
+    </footer>
+  </main>
+  <script type="module" src="./app.mjs"></script>
+</html>
